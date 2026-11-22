@@ -39,7 +39,10 @@ public class MotoreDeiLivelli {
         }
         double velocita = VELOCITA_AL_LIVELLO_1 + VELOCITA_IN_PIU_A_OGNI_LIVELLO * (numero - 1);
         double errore = Math.max(0, ERRORE_AL_LIVELLO_1 - ERRORE_IN_MENO_A_OGNI_LIVELLO * (numero - 1));
-        return new Livello(numero, velocita, errore, new Ostacoli(ostacoli(numero, larghezzaCampo / 2.0, altezzaCampo / 2.0)));
+        int durataStella = 300 - 30 * (numero - 1);       // 300, 270, 240, 210, 180
+        return new Livello(numero, velocita, errore,
+        new Ostacoli(ostacoli(numero, larghezzaCampo / 2.0, altezzaCampo / 2.0)),
+        durataStella);
     }
 
     /**
